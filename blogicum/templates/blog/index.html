@@ -1,5 +1,4 @@
-{% load static %}
-{% for post in posts %}
+{% for post in posts|slice:"::-1" %}
   <article>
     <h2>{{ post.location }}</h2>
     <p>{{ post.date }}</p>
