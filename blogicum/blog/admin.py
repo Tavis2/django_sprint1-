@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Category, Location, Post
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'is_published', 'created_at')
@@ -25,7 +26,6 @@ class LocationAdmin(admin.ModelAdmin):
         return self.title
 
 
-
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = (
@@ -45,4 +45,3 @@ class PostAdmin(admin.ModelAdmin):
 
     def __str__(self):
         return self.title
-

@@ -19,7 +19,6 @@ def index(request):
     return render(request, 'blog/index.html', {'posts': posts})
 
 
-
 def post_detail(request, post_id):
     post = get_object_or_404(
         Post.objects.select_related('category', 'location', 'author'),
@@ -34,7 +33,6 @@ def post_detail(request, post_id):
         'blog/post_detail.html',
         {'post': post}
     )
-
 
 
 def category_posts(request, slug):
