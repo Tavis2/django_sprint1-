@@ -16,7 +16,14 @@ def index(request):
         .order_by('-pub_date')[:5]
     )
 
-    return render(request, 'blog/index.html', {'posts': posts})
+    return render(
+        request,
+        'blog/index.html',
+        {
+            'title': 'Главная страница',
+            'posts': posts,
+        }
+    )
 
 
 def post_detail(request, post_id):
@@ -31,7 +38,10 @@ def post_detail(request, post_id):
     return render(
         request,
         'blog/post_detail.html',
-        {'post': post}
+        {
+            'title': post.title,
+            'post': post,
+        }
     )
 
 
@@ -56,6 +66,7 @@ def category_posts(request, slug):
         request,
         'blog/category.html',
         {
+            'title': f'Публикации в категории — {category.title}',
             'category': category,
             'posts': posts,
         }
